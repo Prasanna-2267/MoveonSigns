@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-cream: #FEFBF4;
+    --color-cream-alt: #F8F5EE;
+    --color-forest: #294A3A;
+    --color-forest-medium: #365443;
+    --color-forest-dark: #213B2E;
+    --color-red: #C71910;
+    --color-black: #171716;
+    --color-white: #FFFFFF;
+    
+    --font-serif: 'Petrona', serif;
+    --font-sans: 'Archivo', sans-serif;
+    --font-logo: 'Jost', sans-serif;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-forest);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-serif-heading {
+    font-family: var(--font-serif);
+    font-weight: 700;
+  }
+}
+
+/* Custom Typography Utilities */
+.font-petrona {
+  font-family: 'Petrona', serif;
+}
+
+.font-archivo {
+  font-family: 'Archivo', sans-serif;
+}
+
+.font-jost {
+  font-family: 'Jost', sans-serif;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F5EE;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(41, 74, 58, 0.3);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(41, 74, 58, 0.6);
+}
+
+/* Custom Editorial Animation Classes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Button & Link Hover States */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Editorial Button Styles */
+.gw-button-primary {
+  background-color: #294A3A;
+  color: #FEFBF4;
+  border: 1px solid #294A3A;
+  font-family: 'Archivo', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 3px;
+  transition: all 250ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.gw-button-primary:hover {
+  background-color: #213B2E;
+  border-color: #213B2E;
+}
+
+.gw-button-secondary {
+  background-color: #FEFBF4;
+  color: #294A3A;
+  border: 1px solid #294A3A;
+  font-family: 'Archivo', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 3px;
+  transition: all 250ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.gw-button-secondary:hover {
+  background-color: #294A3A;
+  color: #FEFBF4;
+}
+
+/* Custom Hide Scrollbar for Carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Horizontal Rolling / Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marquee 55s linear infinite;
+}
+
+.animate-marquee-slow:hover {
+  animation-play-state: paused;
+}
+
